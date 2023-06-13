@@ -17,7 +17,7 @@
 
 # /home/rranftl/Data2/Projects/sfm_priors/colmap
 
-colmap_path=$1/
+colmap_path=$1
 iname=$2/
 outf=$3/
 
