@@ -122,7 +122,7 @@ def test(options):
     idxs = np.random.permutation(len(dset))
 
     for batch_idx in idxs:
-        (pts, side_info, F_gt, _, _) = dset.__getitem__(batch_idx)
+        (pts, side_info, F_gt, _, _, img_paths) = dset.__getitem__(batch_idx)
 
         # Compute our result
         with torch.no_grad():

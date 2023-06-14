@@ -133,12 +133,13 @@ class FundamentalMatrixDataset(Dataset):
             index (int): sample index
 
         Returns:
-            tuple: points, side information, fundamental matrix, virtual points 1, virtual points 2
+            tuple: points, side information, fundamental matrix, virtual points 1, virtual points 2, image paths
         """
         pts = self.pts[index]
         F = self.F[index]
         pts1_virt = self.pts1_virt[index]
         pts2_virt = self.pts2_virt[index]
+        img_paths = self.img_paths
 
         # print(self.img_paths[index])
 
@@ -163,7 +164,7 @@ class FundamentalMatrixDataset(Dataset):
             pts = pts[idx, :]
             side_info = side_info[idx]
 
-        return (np.float32(pts[:, :4]), side_info, np.float32(F), pts1_virt, pts2_virt)
+        return (np.float32(pts[:, :4]), side_info, np.float32(F), pts1_virt, pts2_virt, img_paths)
 
     def __len__(self):
         """Get length of dataset.
