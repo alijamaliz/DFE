@@ -139,7 +139,7 @@ class FundamentalMatrixDataset(Dataset):
         F = self.F[index]
         pts1_virt = self.pts1_virt[index]
         pts2_virt = self.pts2_virt[index]
-        img_paths = self.img_paths
+        img_paths = self.img_paths[index]
 
         # print(self.img_paths[index])
 
