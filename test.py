@@ -14,7 +14,7 @@ import torch
 
 from dfe.datasets import ColmapDataset
 from dfe.models import NormalizedEightPointNet
-from dfe.utils import compute_residual
+from dfe.utils import compute_residual, save_visualized_colmap_output
 
 from sklearn.metrics import f1_score
 
@@ -123,6 +123,14 @@ def test(options):
 
     for batch_idx in idxs:
         (pts, side_info, F_gt, _, _, img_paths) = dset.__getitem__(batch_idx)
+
+        image_1_path, image_2_path = img_paths
+        save_visualized_colmap_output(
+            img1_path="/content/Family-images/{}".format(image_1_path),
+            img2_path="/content/Family-images/{}".format(image_2_path),
+            pts=pts,
+            batch_idx=batch_idx,
+        )
 
         # Compute our result
         with torch.no_grad():
